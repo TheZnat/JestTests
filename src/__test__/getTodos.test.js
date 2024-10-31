@@ -22,7 +22,7 @@ describe("getTodos", () => {
   it("should return 200 todos using axios.get", async () => {
     const result = await getTodos();
     expect(axiosSpy).toHaveBeenCalledWith(
-      "https://jsonplaceholder.typicode.com/todos"
+      "https://jsonplaceholder.typicode.com/todo"
     );
     expect(result).toHaveLength(200);
   });
