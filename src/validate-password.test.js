@@ -23,7 +23,7 @@ describe("validatePassword", () => {
     ["mypassword12!", { success: false, error: passwordValidationErrors.case }],
     ["MYPASSWORD12!", { success: false, error: passwordValidationErrors.case }],
   ])(
-    "should validate a password against mix case and return message",
+    "should validate a password '%s' against mix case and return message",
     (password, expectedError) => {
       expect(validatePassword(password)).toEqual(expectedError);
     }
@@ -38,9 +38,8 @@ describe("validatePassword", () => {
       { success: false, error: passwordValidationErrors.number },
     ],
   ])(
-    "should validate a password against digits and characters and return message",
+    "should validate a password '%s' against digits and characters and return message",
     (password, expectedError) => {
-        
       expect(validatePassword(password)).toEqual(expectedError);
     }
   );
