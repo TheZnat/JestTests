@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test: watch": "jest --watch --сoverage false"
+    "test:watch": "jest --watch --coverage=false"
   },
   "keywords": [],
   "author": "",
