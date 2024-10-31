@@ -6,6 +6,9 @@ const config = {
     "<rootDir>/src/**/*.{js,jsx,ts,tsx}",
     "!**/node_modules/**",
     "!<rootDir>/src/**/*.mock.*",
+    "jest.config.js",
+    "--coverage",
+    "false"
   ],
   coverageThreshold: {
     global: {
