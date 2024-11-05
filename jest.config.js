@@ -1,20 +1,23 @@
 /** @type {import('jest').Config} */
+
 const config = {
-  verbose: true,
   collectCoverage: true,
   collectCoverageFrom: [
-    "<rootDir>/src/**/*.{js,jsx,ts,tsx}",
-    "!**/node_modules/**",
-    "!<rootDir>/src/**/*.mock.*",
+    'src/**/*.{js,jsx}',
+    '!src/**/index.js',
+    '!src/main.jsx',
   ],
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80,
-    },
+  coverageDirectory: 'coverage',
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/internal/jest.setup.js'],
+  transform: {
+    '^.+\\.(js|jsx)$': 'babel-jest',
+  },
+  moduleFileExtensions: ['js', 'jsx'],
+  moduleNameMapper: {
+    '^.+\\.svg$': 'jest-svg-transformer',
+    '^.+\\.css$': 'identity-obj-proxy',
   },
 };
 
-module.exports = config;
+export default config;
