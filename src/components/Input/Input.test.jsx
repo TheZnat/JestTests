@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Input } from "./Input";
 
 const testPlaceholder = "Test Placeholder";
@@ -43,14 +44,14 @@ describe("Input", ()=>{
 
         expect(screen.getByDisplayValue("123")).toBeInTheDocument();
     });
-    it("should invoke onChange", ()=>{
+    it("should invoke onChange", async ()=>{
         const onChange = jest.fn();
         const { container } = render(<Input onChange={onChange} value="123" />);
 
         const inputElement = container.querySelector("input");
-        fireEvent.change(inputElement, {target: {value: "12345"}});
+   
+        await userEvent.type(inputElement, '45');
 
-        expect(onChange).toHaveBeenCalledTimes(1);
-
+        expect(onChange).toHaveBeenCalledTimes(2);
     })
 })
