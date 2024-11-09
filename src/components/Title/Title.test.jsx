@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-
 import { Title } from "./Title";
 
 const text = "Hello World";
@@ -15,8 +14,7 @@ describe("Title", ()=>{
     });
     it("should render title with the correct class", ()=>{
         render(<Title className="test1">{text}</Title>);
-
-        const element = container.getByText(".test1");
+        const element = screen.getByText(text);
 
         expect(element).toBeInTheDocument();
         expect(element).toHaveClass("test1");
